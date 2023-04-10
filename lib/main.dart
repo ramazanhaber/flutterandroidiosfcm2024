@@ -96,6 +96,12 @@ class _MyAppState extends State<MyApp> {
         onDidReceiveNotificationResponse:
             (NotificationResponse notificationResponse) async {});
 
+    await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
     // Token almak için
     gelenToken = await _firebaseMessaging.getToken();
     print('Token: $gelenToken');
