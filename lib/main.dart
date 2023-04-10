@@ -110,10 +110,12 @@ class _MyAppState extends State<MyApp> {
     // mesaj gelince burası çalışır
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('onMessage received: $message');
+      if (Platform.isAndroid) {
+        final title = message.notification!.title;
+        final body = message.notification!.body;
+        showNotification(title: title, body: body);
+      }
 
-      final title = message.notification!.title;
-      final body = message.notification!.body;
-      showNotification(title: title, body: body);
     });
 
     // uygulama kapalı iken veya arkaplanda iken Bildirime tıklanınca çalışır
