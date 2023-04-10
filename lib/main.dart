@@ -7,13 +7,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 
-
-
 /*
 KULLANILAN MAİL : 07flutteregitim@gmail.com
 paket ismi : com.ramzey.flutterandroidiosfcm2024
 server key : AAAAAIVOT7A:APA91bGkjxpdjpiZz_dmRC5jF42Mqhse-l01XHg92480TklKx3_Ss9-YVwDqUTZ8JKWQfbSA7Zb8A7n6o7xNz_zKrvDDA0j5frg6d0lck_wDHRQf6-euaxw7_--wntCHXYvlgCqdyayo
 
+https://fcm.googleapis.com/fcm/send
+{
+   "to": "fD4xmi6cT523WjCo--6VFx:APA91bHKZoS6_0O501B9tdwUGuxy9DB4kSvgvEAtE71AF2HlGWEJ9pcIIueePFnTjoEtGO91neeepyeHXkJKOaoG43HCkuHuLOmmci7JICTCeD6b1IlTRMbaaaKZzgYBFbKpRqhteyjJ",
+   "notification": {
+    "body": "Hello2",
+    "title": "This is test message.2",
+    "content_available" : true,
+    "priority" : "high"
+   }
+}
+
+Authorization
+key=AAAAAIVOT7A:APA91bGkjxpdjpiZz_dmRC5jF42Mqhse-l01XHg92480TklKx3_Ss9-YVwDqUTZ8JKWQfbSA7Zb8A7n6o7xNz_zKrvDDA0j5frg6d0lck_wDHRQf6-euaxw7_--wntCHXYvlgCqdyayo
  */
 final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
