@@ -118,6 +118,10 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.instance
         .subscribeToTopic("all")
         .then((value) => print("topic all olarak eklendi"));
+
+    setState(() {
+
+    });
   }
 
   @override
