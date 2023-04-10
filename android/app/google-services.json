@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "2236501936",
+    "project_id": "egitimornek-bdc24",
+    "storage_bucket": "egitimornek-bdc24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2236501936:android:d5e10a9a24deda8a219075",
+        "android_client_info": {
+          "package_name": "com.ramzey.fcmandroidios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBhHdCgqEvjW8bpTwU4pPF9qIELVqqE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2236501936-nm0qokjqjfnoid829uanak9jp00odrqk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ramzey.flutterandroidfcmpush"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2236501936:android:5ed2da1d10b86996219075",
+        "android_client_info": {
+          "package_name": "com.ramzey.fcmpush2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBhHdCgqEvjW8bpTwU4pPF9qIELVqqE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2236501936-nm0qokjqjfnoid829uanak9jp00odrqk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ramzey.flutterandroidfcmpush"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2236501936:android:7da07df5f66fc9d4219075",
+        "android_client_info": {
+          "package_name": "com.ramzey.flutterandroidiosfcm2024"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBhHdCgqEvjW8bpTwU4pPF9qIELVqqE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2236501936-2mdkcberp988sr8fllnh00ac8a4v48tj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2236501936-nm0qokjqjfnoid829uanak9jp00odrqk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ramzey.flutterandroidfcmpush"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
