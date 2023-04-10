@@ -6,7 +6,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-
 /*
 KULLANILAN MAİL : 07flutteregitim@gmail.com
 paket ismi : com.ramzey.flutterandroidiosfcm2024
@@ -33,30 +32,25 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('onBackgroundMessage received: $message');
 }
 
-
-
-
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-   MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   notificationDetails() {
-    return  NotificationDetails(
+    return NotificationDetails(
         android: AndroidNotificationDetails('kanalid', 'kanalisim',
             importance: Importance.max),
         iOS: DarwinNotificationDetails());
@@ -67,6 +61,8 @@ class _MyAppState extends State<MyApp> {
     return flutterLocalNotificationsPlugin.show(
         id, title, body, await notificationDetails());
   }
+
+  String? gelenToken = "";
 
   Future<void> fcmBaslat() async {
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -85,7 +81,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings("@mipmap/ic_launcher");
+        AndroidInitializationSettings("@mipmap/ic_launcher");
 
     var initializationSettingsIOS = DarwinInitializationSettings(
         requestAlertPermission: true,
@@ -101,10 +97,9 @@ class _MyAppState extends State<MyApp> {
             (NotificationResponse notificationResponse) async {});
 
     // Token almak için
-    String? token = await _firebaseMessaging.getToken();
-    print('Token: $token');
-    await Clipboard.setData(ClipboardData(text: token));
-
+    gelenToken = await _firebaseMessaging.getToken();
+    print('Token: $gelenToken');
+    await Clipboard.setData(ClipboardData(text: gelenToken));
 
     // mesaj gelince burası çalışır
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -112,7 +107,7 @@ class _MyAppState extends State<MyApp> {
 
       final title = message.notification!.title;
       final body = message.notification!.body;
-      showNotification(title: title,body: body);
+      showNotification(title: title, body: body);
     });
 
     // uygulama kapalı iken veya arkaplanda iken Bildirime tıklanınca çalışır
@@ -123,8 +118,6 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.instance
         .subscribeToTopic("all")
         .then((value) => print("topic all olarak eklendi"));
-
-
   }
 
   @override
@@ -132,6 +125,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     fcmBaslat();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -140,26 +134,51 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  MyHomePage(),
+      home: gelenToken == ""
+          ? Scaffold(
+              body: Center(
+              child: CircularProgressIndicator(),
+            ))
+          : MyHomePage(
+              token: gelenToken!,
+            ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-   MyHomePage({Key? key}) : super(key: key);
+  String token = "";
+
+  MyHomePage({required this.token});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController txtController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    txtController = new TextEditingController();
+    txtController.text = widget.token;
+    print(widget.token + "--");
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("FCM 2024"),),
-        body: Container());
+        appBar: AppBar(
+          title: Text("FCM 2024"),
+        ),
+        body: Container(
+            child: TextFormField(
+          controller: txtController,  keyboardType: TextInputType.multiline,
+              maxLines: null,
+
+        )));
   }
 }
-
-
-
